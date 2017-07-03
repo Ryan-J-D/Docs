@@ -15,7 +15,7 @@ void CanAssignBed(SleepingBag bag, BasePlayer player, ulong targetPlayerId)
 ## CanBuild
 
 ``` csharp
-void CanBuild(Planner plan, Construction prefab)
+void CanBuild(Planner planner, Construction prefab, Vector3 position)
 {
     Puts("CanBuild works!");
 }
@@ -35,6 +35,19 @@ void CanChangeCode(CodeLock codeLock, BasePlayer player, string newCode, bool is
 
  * Called when a player tries to change the code on a codelock
  * Returning a non-null value overrides default behavior
+
+## CanPickupLock
+
+``` csharp
+void CanPickupLock(BasePlayer player, BaseLock lock)
+{
+    Puts("CanPickupLock works!");
+}
+```
+
+ * Called when a player attempts to pickup a lock
+ * Returning true or false overrides default behavior
+ 
 
 ## CanHideStash
 
@@ -251,3 +264,39 @@ void OnStructureUpgrade(BaseCombatEntity entity, BasePlayer player, BuildingGrad
 
  * Called when the player upgrades the grade of a BuildingBlock or BaseCombatEntity
  * Returning a non-null value overrides default behavior
+
+## CanAffordUpgrade
+
+``` csharp
+void CanAffordUpgrade(BasePlayer player, BuildingBlock block, BuildingGrade.Enum grade)
+{
+    Puts("CanAffordUpgrade works!");
+}
+```
+
+ * Called when the resources for an upgrade are checked
+ * Returning true or false overrides default behavior
+ 
+## CanChangeGrade
+
+``` csharp
+void CanChangeGrade(BasePlayer player, BuildingBlock block, BuildingGrade.Enum grade)
+{
+    Puts("CanChangeGrade works!");
+}
+```
+
+ * Called when a player tries to change a building grade
+ * Returning true or false overrides default behavior
+ 
+## CanDemolish
+
+``` csharp
+void CanDemolish(BasePlayer player, BuildingBlock block, BuildingGrade.Enum grade)
+{
+    Puts("CanDemolish works!");
+}
+```
+
+ * Called when a player tries to demolish a building block
+ * Returning true or false overrides default behavior

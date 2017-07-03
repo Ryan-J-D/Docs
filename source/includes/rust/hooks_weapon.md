@@ -71,3 +71,27 @@ void OnWeaponFired(BaseProjectile projectile, BasePlayer player, ItemModProjecti
 
  * Called when the player fires a weapon
  * No return behavior
+
+## OnReloadMagazine
+
+``` csharp
+void OnReloadMagazine(BaseProjectile projectile, BasePlayer player, ItemModProjectile mod, ProtoBuf.ProjectileShoot projectiles)
+{
+    Puts("OnReloadMagazine works!");
+}
+```
+
+ * Called when the player reloads a magazine
+ * Returning a non-null value overrides default behavior
+ 
+## OnReloadWeapon
+
+``` csharp
+void OnReloadWeapon(BaseProjectile projectile, BasePlayer player, ItemModProjectile mod, ProtoBuf.ProjectileShoot projectiles)
+{
+    Puts("OnReloadWeapon works!");
+}
+```
+
+ * Called when the player reloads a weapon
+ * Returning a non-null value overrides default behavior

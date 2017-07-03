@@ -27,7 +27,7 @@ void CanCombineDroppedItem(DroppedItem item, DroppedItem targetItem)
 ## CanMoveItem
 
 ``` csharp
-void CanMoveItem(Item item, PlayerInventory playerLoot, uint targetContainer, int targetSlot)
+void CanMoveItem(Item item, PlayerInventory playerLoot, uint targetContainer, int targetSlot, int numItems)
 {
     Puts("CanMoveItem works!");
 }
@@ -48,6 +48,30 @@ void CanStackItem(Item item, Item targetItem)
  * Called when moving an item onto another item
  * Returning true or false overrides default behavior
 
+## OnMaxStackable
+
+``` csharp
+void OnMaxStackable(Item item, Item targetItem)
+{
+    Puts("OnMaxStackable works!");
+}
+```
+
+ * Called when an items max stackable is calculated
+ * Returning a non-null value overrides default behavior
+ 
+## OnContainerDropItems
+
+``` csharp
+void OnContainerDropItems(ItemContainer container)
+{
+    Puts("OnContainerDropItems works!");
+}
+```
+
+ * Called when an item is dropped from a container
+ * No return behavior
+ 
 ## OnConsumeFuel
 
 ``` csharp
@@ -71,18 +95,6 @@ void OnFindBurnable(BaseOven oven)
 
  * Called when looking for fuel for the oven
  * Returning an item overrides default behavior
-
-## OnHealingItemUse
-
-``` csharp
-void OnHealingItemUse(HeldEntity item, BasePlayer target)
-{
-    Puts("OnHealingItemUse works!");
-}
-```
-
- * Called right before a Syringe or Medkit item is used
- * Returning a non-null value overrides default behavior
 
 ## OnItemAction
 

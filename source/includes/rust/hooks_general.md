@@ -35,6 +35,18 @@ void OnRconConnection(IPEndPoint ip)
 
  * Called when a new RCon connection is opened
  * Returning a non-null value overrides default behavior
+ 
+## OnRconCommand
+
+``` csharp
+void OnRconCommand(string ip, string command, string args[])
+{
+    Puts("OnRconCommand works!");
+}
+```
+
+ * Called when an RCON command is run
+ * No return behavior
 
 ## OnSaveLoad
 

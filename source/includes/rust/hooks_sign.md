@@ -35,3 +35,15 @@ void OnSignUpdated(Signage sign, BasePlayer player, string text)
 
  * Called after the player has changed the text on a sign
  * No return behavior
+ 
+## OnSpinWheel
+
+``` csharp
+void OnSpinWheel(BasePlayer player, SpinnerWheel wheel)
+{
+    Puts("OnSpinWheel works!");
+}
+```
+
+ * Called when the player spins a spinnerwheel
+ * No return behavior

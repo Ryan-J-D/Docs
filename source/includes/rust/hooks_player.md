@@ -15,13 +15,13 @@ void CanAttack(BasePlayer player)
 ## CanBeTargeted (autoturret)
 
 ``` csharp
-void CanBeTargeted(BaseCombatEntity player, MonoBehaviour turret)
+void CanBeTargeted(BaseCombatEntity player, MonoBehaviour behaviour)
 {
     Puts("CanBeTargeted works!");
 }
 ```
 
- * Called when an autoturret, flameturret or helicopterturret is attempting to target the player
+ * Called when an autoturret, flameturret, shotgun trap, or helicopterturret is attempting to target the player
  * Returning true overrides default behavior
 
 ## CanBeWounded
@@ -197,13 +197,13 @@ void OnPlayerAttack(BasePlayer attacker, HitInfo info)
 ## OnPlayerBanned
 
 ``` csharp
-void OnPlayerBanned(Connection connection, string reason)
+void OnPlayerBanned(string name, string id, string address, string reason)
 {
     Puts("OnPlayerBanned works!");
 }
 ```
 
- * Called when a player is banned
+ * Called when a player is banned (EAC, server ban, etc)
  * No return behavior
 
 ## OnPlayerChat
@@ -351,6 +351,7 @@ void OnPlayerRespawn(BasePlayer player)
 
  * Called when the player is attempting to respawn
  * Returning a non-null value overrides the default behavior
+ * Returning a Vector3 position changes the players spawnpoint
 
 ## OnPlayerRespawned
 
@@ -475,3 +476,15 @@ void OnUserApprove(Network.Connection connection)
 
  * Used by RustCore and abstracted into CanClientLogin
  * Returning true overrides default behavior, plugin should call Reject if it does this
+ 
+## OnPlayerViolation
+
+``` csharp
+void OnPlayerViolation(BasePlayer player, AntiHackType type, float amount)
+{
+    Puts("OnPlayerViolation works!");
+}
+```
+
+ * Called when a players violations increase
+ * Returning a non-null value overrides default behavior
